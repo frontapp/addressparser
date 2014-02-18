@@ -7,7 +7,9 @@ var addressparser = {};
 
 // expose to the world
 module.exports = function(address){
-    return addressparser.parse(address);
+    var safe = address.replace(/:[^<]*|\([^\)]*\)/g, '');
+
+    return addressparser.parse(safe);
 };
 
 /**
